@@ -32,6 +32,16 @@ public class MedianofTwoSortedArrays {
      * Output: 2.00000
      */
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        if (nums1.length > nums2.length) {
+            return findMedianSortedArrays(nums2, nums1);
+        }
+
+        int len = nums1.length + nums2.length;
+        int cut1 = 0;
+        int cut2 = 0;
+        int cutL = 0;
+        int cutR = nums1.length;
+
         return (double) 1.0;
     }
 }
