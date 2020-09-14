@@ -14,7 +14,29 @@ package leetcode;
  * Output: "bb"
  */
 public class LongestPalindromicSubstring {
+    String res = "";
+
     public String longestPalindrome(String s) {
-        return null;
+        if (s == null || s.length() < 1) {
+            return s;
+        }
+        int len = s.length();
+        for (int i = 0; i < len; i++) {
+            expandHelper(s, i, i);
+            expandHelper(s, i, i + 1);
+        }
+        return res;
+    }
+
+    private void expandHelper(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        String current = s.substring(left + 1, right);
+        if (current.length() > res.length()) {
+            res = current;
+            System.out.println(res);
+        }
     }
 }
