@@ -39,7 +39,6 @@ public class ZigZagConversion {
 
         for (int i = 0; i < s.length(); i++) {
             int index = i % (2 * numRows - 2);
-
             index = index < numRows ? index : 2 * numRows - 2 - index;
             sb[index].append(s.charAt(i));
         }

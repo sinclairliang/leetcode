@@ -35,6 +35,7 @@ public class StringtoIntegerAtoi {
         if (str.length() == 0) {
             return 0;
         }
+
         char firstChar = str.charAt(0);
         int sign = 1;
         int start = 0;
@@ -53,7 +54,6 @@ public class StringtoIntegerAtoi {
             res = res * 10 + str.charAt(i) - '0';
             if (sign == 1 && res > Integer.MAX_VALUE) return Integer.MAX_VALUE;
             if (sign == -1 && res > Integer.MAX_VALUE) return Integer.MIN_VALUE;
-
         }
         return (int) (sign * res);
     }
