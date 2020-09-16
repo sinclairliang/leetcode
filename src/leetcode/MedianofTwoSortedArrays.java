@@ -55,11 +55,11 @@ public class MedianofTwoSortedArrays {
                 cutL = cut1 + 1;
             } else {
                 if (len % 2 == 0) {
-                    L1 = L1 > L2 ? L1 : L2;
-                    R1 = R1 < R2 ? R1 : R2;
+                    L1 = Math.max(L1, L2);
+                    R1 = Math.min(R1, R2);
                     return  (L1 + R1) / 2;
                 } else {
-                    R1 =  (R1 < R2) ? R1 : R2;
+                    R1 = Math.min(R1, R2);
                     return R1;
                 }
             }

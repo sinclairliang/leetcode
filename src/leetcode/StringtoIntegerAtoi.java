@@ -23,11 +23,11 @@ package leetcode;
  * or INT_MIN (−231) is returned.
  */
 public class StringtoIntegerAtoi {
-    /**
-     * @param str
-     * @return
-     */
     public int myAtoi(String str) {
+        /**
+         * @param str, a string
+         * @return the integer in str
+         */
         if (str == null) {
             return 0;
         }
@@ -51,7 +51,7 @@ public class StringtoIntegerAtoi {
             if (!Character.isDigit(str.charAt(i))) {
                 return (int) res * sign;
             }
-            res = res * 10 + str.charAt(i) - '0';
+            res = res * 10 + str.charAt(i) - '0'; // subtract the ascii value of 0
             if (sign == 1 && res > Integer.MAX_VALUE) return Integer.MAX_VALUE;
             if (sign == -1 && res > Integer.MAX_VALUE) return Integer.MIN_VALUE;
         }
