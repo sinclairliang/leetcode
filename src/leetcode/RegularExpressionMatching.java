@@ -28,17 +28,17 @@ public class RegularExpressionMatching {
      * times, a can be repeated 1 time. Therefore, it matches "aab". Example 5:
      * <p>
      * Input: s = "mississippi" p = "mis*is*p*." Output: false
-     */
-    /**
+     * ================================================================================================
+     * ================================================================================================
      * Dynamic Programming boolean dp[][] => s[0-i] and p[0-j] match dp[0][0] = true
      *
      * 1. p.charAt(j) == s.charAt[i] => dp[i][j] = dp[i-1][j-1]
      * 2. If p.charAt(j) == '.' => dp[i][j] = dp[i-1][j-1]
      * 3. If p.charAt(j) == '*': sub conditions:
      *      I.  if p.charAt(j-1) != s.charAt(i) => dp[i][j] = dp[i-1][j-2] // a* counts as empty;
-     *      II. if p.charAt(j-1) == s.charAt(i) or p.charAt(j-1) == '.' => 
+     *      II. if p.charAt(j-1) == s.charAt(i) or p.charAt(j-1) == '.' =>
      *          i.   dp[i][j] = dp[i][j-1] // a* counts as single a;
-     *          ii.  dp[i][j] = dp[i-1][j] // a* counts as multiple a; 
+     *          ii.  dp[i][j] = dp[i-1][j] // a* counts as multiple a;
      *          iii. dp[i][j] = dp[i][j-2] // a* counts as empty;
      */
     public boolean isMatch(String s, String p) {
