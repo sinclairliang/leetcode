@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class SurroundedRegions {
     /*
       Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.
@@ -25,7 +28,31 @@ public class SurroundedRegions {
       flipped to 'X'. Two cells are connected if they are adjacent cells connected horizontally or vertically.
      */
 
-    public void solve(char[][] board) {
+    public void BFSsolve(char[][] board) {
+        int row = board.length;
+        if (row == 0) {
+            return;
+        }
 
+        int col = board[0].length;
+        Queue<int[]> queue = new LinkedList<>();
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if ((i > 0 && i < row - 1) && (j > 0 && j < col - 1)) {
+                    continue;
+                }
+                if (board[i][j] == '0') {
+                    queue.add(new int[]{i, j});
+                    board[i][j] = '.';
+                }
+            }
+        }
+
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+
+        }
     }
 }

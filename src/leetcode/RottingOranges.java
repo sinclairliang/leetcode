@@ -36,9 +36,23 @@ public class RottingOranges {
             for (int[] d : directions) {
                 int newX = curX + d[0];
                 int newY = curY + d[1];
+                if (newX >= 0 && newX < row && newY >= 0 && newY < col && grid[newX][newY] == 1) {
+                    grid[newX][newY] = grid[curX][curY] + 1;
+                    queue.add(new int[]{newX, newY});
+                }
             }
         }
 
-        return 0;
+        int res = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (grid[i][j] == 1) {
+                    return -1;
+                }
+                res = Math.max(res, grid[i][j]);
+            }
+        }
+
+        return res >= 2 ? res - 2 : 0;
     }
 }
