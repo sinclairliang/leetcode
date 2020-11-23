@@ -23,10 +23,11 @@ package leetcode;
 public class IntegertoRoman {
     int[] a = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
     String[] b = {"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
+
     public String intToRoman(int num) {
         StringBuilder sb = new StringBuilder();
-        for(int i=a.length-1; i>=0&&num>0; i--) {
-            while (num >= a[i]){
+        for (int i = a.length - 1; i >= 0 && num > 0; i--) {
+            while (num >= a[i]) {
                 num -= a[i];
                 sb.append(b[i]);
             }
